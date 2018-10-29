@@ -1,4 +1,4 @@
-package fi.hh.swd4t.zone.fi.hh.swd4t.zone.web;
+package fi.hh.swd4t.zone.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
