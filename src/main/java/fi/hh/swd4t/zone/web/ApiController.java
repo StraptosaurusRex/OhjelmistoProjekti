@@ -24,9 +24,14 @@ public class ApiController {
 	
 	//get question by id
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
-	public @ResponseBody Optional<Question> findQuestiobnRest(@PathVariable("id") Long questionId) {	
+	public Optional<Question> findQuestiobnRest(@PathVariable("id") Long questionId) {	
     	return questionrepository.findById(questionId);
 	}
 	
+	//Delete question by id
+	@RequestMapping (value="/api/question/{id}", method=RequestMethod.DELETE)
+	public void deleteQuestionRest(@PathVariable("id") Long questionId) {
+		questionrepository.deleteById(questionId);
+	}
 	
 }
