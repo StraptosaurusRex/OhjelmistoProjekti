@@ -1,4 +1,4 @@
-package fi.hh.swd4t.zone.fi.hh.swd4t.zone.web;
+package fi.hh.swd4t.zone.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
