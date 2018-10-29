@@ -1,5 +1,6 @@
 package fi.hh.swd4t.zone.web;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import fi.hh.swd4t.zone.domain.Question;
-import fi.hh.swd4t.zone.domain.QuestionRepository;
+import fi.hh.swd4t.zone.domain.Questionnaire;
+import fi.hh.swd4t.zone.domain.QuestionnaireRepository;
 
 @RestController
 public class ApiController {
 	@Autowired
-	private QuestionRepository questionrepository;
+	private QuestionnaireRepository questionrepository;
 
 	//Hello world
 	@RequestMapping (value="/api/hello", method=RequestMethod.GET)
@@ -27,6 +28,5 @@ public class ApiController {
 	public @ResponseBody Optional<Question> findQuestiobnRest(@PathVariable("id") Long questionId) {	
     	return questionrepository.findById(questionId);
 	}
-	
 	
 }
