@@ -1,4 +1,4 @@
-package fi.hh.swd4t.zone.fi.hh.swd4t.zone;
+package fi.hh.swd4t.zone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
