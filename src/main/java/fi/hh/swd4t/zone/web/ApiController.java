@@ -21,7 +21,6 @@ public class ApiController {
 	public String helloWorld() {
 		return "Hello world";
 	}
-	
 	//get question by id
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
 	public Optional<Question> findQuestiobnRest(@PathVariable("id") Long questionId) {	
