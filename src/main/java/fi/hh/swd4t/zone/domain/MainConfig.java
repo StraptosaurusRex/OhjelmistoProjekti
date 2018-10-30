@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
 public class MainConfig {
@@ -21,6 +22,8 @@ public class MainConfig {
         basicDataSource.setUrl(dbUrl);
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
+        JdbcTemplate table = new JdbcTemplate(basicDataSource);
+        table.update("create table if not exists questionnaire(id int, question varchar(100), answer varchar(100)");
 
         return basicDataSource;
     }
