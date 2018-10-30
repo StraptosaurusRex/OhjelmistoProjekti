@@ -4,23 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@EnableAutoConfiguration
 @Entity
-
-public class Questionnaire {
+public class Questions {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
 private String question;
-private String answer;
 
-public Questionnaire() {
-	this.answer = null;
+public Questions() {
+	
 }
-public Questionnaire(String question, String answer) {
+public Questions(String question) {
 	this.question = question;
-	this.answer = answer;
+
 }
 public Long getId() {
 	return id;
@@ -34,15 +34,9 @@ public String getQuestion() {
 public void setQuestion(String question) {
 	this.question = question;
 }
-public String getAnswer() {
-	return answer;
-}
-public void setAnswer(String answer) {
-	this.answer = answer;
-}
 @Override
 public String toString() {
-	return "Questionnaire [id=" + id + ", question=" + question + ", answer=" + answer + "]";
+	return "Questionnaire [id=" + id + ", question=" + question + "]";
 }
 
 }
