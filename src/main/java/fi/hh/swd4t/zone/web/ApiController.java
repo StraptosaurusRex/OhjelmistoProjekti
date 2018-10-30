@@ -24,7 +24,7 @@ public class ApiController {
 	}
 	//get question by id
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
-	public Optional<Questionnaire> findQuestiobnRest(@PathVariable("id") Long questionId) {	
+	public Optional<Questionnaire> findQuestionRest(@PathVariable("id") Long questionId) {	
     	return questionrepository.findById(questionId);
 	}
 	
