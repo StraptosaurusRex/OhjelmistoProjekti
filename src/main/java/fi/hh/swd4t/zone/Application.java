@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import fi.hh.swd4t.zone.domain.Questionnaire;
+import fi.hh.swd4t.zone.domain.Questions;
 import fi.hh.swd4t.zone.domain.QuestionnaireRepository;
 
 @SpringBootApplication
@@ -23,7 +23,7 @@ public class Application {
 	public CommandLineRunner zoneDemo(QuestionnaireRepository questionrepository){
 		return (args) -> {
 			log.info("tallenna kysymys");
-			questionrepository.save(new Questionnaire("Miten kehittäisit Zonen palveluita?", "null"));
+			questionrepository.save(new Questions("Miten kehittäisit Zonen palveluita?"));
 		};
 	}
 }
