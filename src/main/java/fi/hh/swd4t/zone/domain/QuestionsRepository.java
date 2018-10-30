@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface QuestionnaireRepository extends CrudRepository<Questions, Long>{
+public interface QuestionsRepository extends CrudRepository<Questions, Long>{
 
 	List<Questions>findByQuestion(String question);
 }

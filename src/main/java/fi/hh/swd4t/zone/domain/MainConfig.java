@@ -23,7 +23,7 @@ public class MainConfig {
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
         JdbcTemplate table = new JdbcTemplate(basicDataSource);
-        table.update("create table if not exists questionnaire(id int, question varchar(100), answer varchar(100)");
+        table.update("create table if not exists questions(id int, question varchar(100), answer varchar(100)");
 
         return basicDataSource;
     }

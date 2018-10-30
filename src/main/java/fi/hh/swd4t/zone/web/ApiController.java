@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import fi.hh.swd4t.zone.domain.Questions;
-import fi.hh.swd4t.zone.domain.QuestionnaireRepository;
+import fi.hh.swd4t.zone.domain.QuestionsRepository;
 
 
 @RestController
 public class ApiController {
 	@Autowired
-	private QuestionnaireRepository questionrepository;
+	private QuestionsRepository questionrepository;
 
 	//Hello world
 	@RequestMapping (value="/api/hello", method=RequestMethod.GET)
