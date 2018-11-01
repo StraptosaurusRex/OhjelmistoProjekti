@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import fi.hh.swd4t.zone.domain.Questions;
-import fi.hh.swd4t.zone.domain.QuestionsRepository;
+import fi.hh.swd4t.zone.domain.Question;
+import fi.hh.swd4t.zone.domain.QuestionRepository;
 
 @SpringBootApplication
 public class Application {
@@ -20,10 +20,10 @@ public class Application {
 	}
 	
 	@Bean
-	public CommandLineRunner zoneDemo(QuestionsRepository questionrepository){
+	public CommandLineRunner zoneDemo(QuestionRepository questionrepository){
 		return (args) -> {
 			log.info("tallenna kysymys");
-			questionrepository.save(new Questions("Miten kehittäisit Zonen palveluita?"));
+			questionrepository.save(new Question("Miten kehittäisit Zonen palveluita?"));
 		};
 	}
 }
