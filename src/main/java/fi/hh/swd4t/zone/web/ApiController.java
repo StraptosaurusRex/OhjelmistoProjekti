@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import fi.hh.swd4t.zone.domain.Questions;
+import fi.hh.swd4t.zone.domain.Question;
 import fi.hh.swd4t.zone.domain.QuestionsRepository;
 
 
@@ -24,7 +24,7 @@ public class ApiController {
 	}
 	//get question by id
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
-	public Optional<Questions> findQuestionRest(@PathVariable("id") Long questionId) {	
+	public Optional<Question> findQuestionRest(@PathVariable("id") Long questionId) {	
     	return questionrepository.findById(questionId);
 	}
 	
