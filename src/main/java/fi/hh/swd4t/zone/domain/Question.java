@@ -22,7 +22,7 @@ public class Question {
     private Type type;
 	
 	public Question() {
-		this.type = null;
+	
 	}
 	
 	public Question(String question, Type type) {
