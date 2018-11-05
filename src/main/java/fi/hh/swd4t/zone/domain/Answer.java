@@ -20,7 +20,8 @@ public class Answer {
 	private Long id;
 	private String answer;
 	
-	@JoinColumn(name = "id")
+	@ManyToOne
+	@JsonIgnore
     private Question question;
 	
 	public Answer() {
