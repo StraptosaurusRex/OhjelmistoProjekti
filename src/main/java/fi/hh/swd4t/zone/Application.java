@@ -30,7 +30,7 @@ public class Application {
 			Question question = new Question("Miten kehittäisit Zonen palveluita?");
 			questionrepository.save(question);
 			log.info("tannelletaan esimerkkivastauksia");
-			answerRepository.saveOptional("EVVK", questionrepository.findById(question.getId()));
+			answerRepository.save(new Answer("EVVK", question));
 		};
 	}
 }

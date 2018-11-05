@@ -9,7 +9,5 @@ public interface AnswerRepository extends CrudRepository<Answer, Long> {
 	
 	List<Answer> findByAnswer(Answer answer);
 	List<Answer> findByQuestion(Question question);
-	void saveOptional(String answer, Optional<Question> question);
-	
 
 }
