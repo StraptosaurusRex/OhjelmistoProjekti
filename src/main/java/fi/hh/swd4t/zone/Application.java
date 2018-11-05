@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 
 import fi.hh.swd4t.zone.domain.Question;
 import fi.hh.swd4t.zone.domain.QuestionRepository;
+import fi.hh.swd4t.zone.domain.TypeRepository;
+import fi.hh.swd4t.zone.domain.Type;
 
 @SpringBootApplication
 public class Application {
@@ -20,10 +22,14 @@ public class Application {
 	}
 	
 	@Bean
-	public CommandLineRunner zoneDemo(QuestionRepository questionrepository){
+	public CommandLineRunner zoneDemo(QuestionRepository questionrepository, TypeRepository typerepository){
 		return (args) -> {
 			log.info("tallenna kysymys");
-			questionrepository.save(new Question("Miten kehittäisit Zonen palveluita?"));
+			questionrepository.save(new Question("Miten kehittäisit Zonen palveluita?", typerepository.findByType("teksti").get(0)));
+			
+			log.info("tallenna kategoriat");
+			typerepository.save(new Type("teksti"));
+			typerepository.save(new Type("monivalinta"));
 		};
 	}
 }

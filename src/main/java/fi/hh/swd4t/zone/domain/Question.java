@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @EnableAutoConfiguration
 @Entity
 public class Question {
@@ -14,12 +16,18 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String question;
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "typeid")
+    private Type type;
 	
 	public Question() {
-		
+		this.type = null;
 	}
-	public Question(String question) {
+	
+	public Question(String question, Type type) {
 		this.question = question;
+		this.type = type;
 	
 	}
 	public Long getId() {
@@ -34,9 +42,16 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
+	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "Questionnaire [id=" + id + ", question=" + question + "]";
+		return "Question [id=" + id + ", question=" + question + ", type=" + type + "]";
 	}
 
 }
