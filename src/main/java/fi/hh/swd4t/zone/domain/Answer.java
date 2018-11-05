@@ -7,9 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import fi.hh.swd4t.zone.domain.Question;
 
 @EnableAutoConfiguration
 @Entity
