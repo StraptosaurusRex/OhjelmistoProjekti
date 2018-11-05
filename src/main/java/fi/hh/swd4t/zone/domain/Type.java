@@ -2,6 +2,7 @@ package fi.hh.swd4t.zone.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Type {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long typeid;
 	private String type;
-	@OneToMany(mappedBy = "type")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
 	private List<Question> questions;
 	
 	
