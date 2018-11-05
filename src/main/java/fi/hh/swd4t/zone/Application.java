@@ -24,12 +24,14 @@ public class Application {
 	@Bean
 	public CommandLineRunner zoneDemo(QuestionRepository questionrepository, TypeRepository typerepository){
 		return (args) -> {
-			log.info("tallenna kysymys");
-			questionrepository.save(new Question("Miten kehittäisit Zonen palveluita?", typerepository.findByType("teksti").get(0)));
-			
 			log.info("tallenna kategoriat");
 			typerepository.save(new Type("teksti"));
 			typerepository.save(new Type("monivalinta"));
+			
+			log.info("tallenna kysymys");
+			questionrepository.save(new Question("Miten kehittäisit Zonen palveluita?", typerepository.findByType("teksti").get(0)));
+			
+
 		};
 	}
 }
