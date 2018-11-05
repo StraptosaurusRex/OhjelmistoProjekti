@@ -47,6 +47,18 @@ public class Type {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
+	@Override
+	public String toString() {
+		return "Type [typeid=" + typeid + ", type=" + type + "]";
+	}
 	
 }
