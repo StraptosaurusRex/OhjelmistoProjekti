@@ -1,13 +1,17 @@
 package fi.hh.swd4t.zone.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @EnableAutoConfiguration
 @Entity
@@ -19,6 +23,9 @@ public class Question {
    
 	@ManyToOne
     private Type type;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	private List<Answer> answers;
 	
 	public Question() {
 	
@@ -48,9 +55,19 @@ public class Question {
 	public void setType(Type type) {
 		this.type = type;
 	}
+	
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Question [id=" + id + ", question=" + question + ", type=" + type + "]";
 	}
+	
 
 }
