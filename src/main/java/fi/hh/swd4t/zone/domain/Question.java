@@ -13,6 +13,9 @@ import javax.persistence.OneToMany;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @EnableAutoConfiguration
 @Entity
 public class Question {
@@ -22,6 +25,8 @@ public class Question {
 	private String question;
    
 	@ManyToOne
+	@JsonIgnore
+	@JsonManagedReference
     private Type type;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")

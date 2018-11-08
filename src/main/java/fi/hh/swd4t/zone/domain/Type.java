@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @EnableAutoConfiguration
@@ -21,6 +22,10 @@ public class Type {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String type;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
+	@JsonBackReference
+	private List<Question> questions;
 	
 	
 	public Type() {
