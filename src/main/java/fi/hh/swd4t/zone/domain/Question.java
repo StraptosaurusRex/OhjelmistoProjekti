@@ -18,7 +18,6 @@ public class Question {
 	private String question;
    
 	@ManyToOne
-    //@JsonIgnore
     private Type type;
 	
 	public Question() {

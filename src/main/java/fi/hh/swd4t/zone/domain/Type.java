@@ -21,8 +21,6 @@ public class Type {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String type;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
-	private List<Question> questions;
 	
 	
 	public Type() {
@@ -47,14 +45,6 @@ public class Type {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
 	}
 
 	@Override
