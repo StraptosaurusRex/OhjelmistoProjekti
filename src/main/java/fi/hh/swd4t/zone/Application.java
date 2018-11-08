@@ -30,9 +30,8 @@ public class Application {
 			typerepository.save(type1);
 			typerepository.save(type2);
 			
-			
 			log.info("tallenna kysymys");
-			Question question = new Question("Miten kehittäisit Zonen palveluita?", type1);
+			Question question = new Question("Miten kehittäisit Zonen palveluita????", type1);
 			questionrepository.save(question);
 			
 
