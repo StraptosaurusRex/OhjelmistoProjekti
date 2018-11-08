@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Type {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long typeid;
+	private Long id;
 	private String type;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
 	private List<Question> questions;
@@ -33,12 +33,12 @@ public class Type {
 		this.type = type;
 	}
 
-	public Long getTypeid() {
-		return typeid;
+	public Long getId() {
+		return id;
 	}
 
-	public void setTypeid(Long typeid) {
-		this.typeid = typeid;
+	public void setId(Long typeid) {
+		this.id = typeid;
 	}
 
 	public String getType() {
@@ -59,7 +59,7 @@ public class Type {
 
 	@Override
 	public String toString() {
-		return "Type [typeid=" + typeid + ", type=" + type + "]";
+		return "Type [typeid=" + id + ", type=" + type + "]";
 	}
 	
 }
