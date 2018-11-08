@@ -22,6 +22,13 @@ public class ApiController {
 	public String helloWorld() {
 		return "Hello world";
 	}
+	
+	//get all questions
+	@RequestMapping (value="/api/questions", method=RequestMethod.GET)
+	public Iterable<Question> findAllRest() {
+		return questionrepository.findAll();
+	}
+	
 	//get question by id
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
 	public Optional<Question> findQuestionRest(@PathVariable("id") Long questionId) {	
