@@ -16,7 +16,8 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String question;
-    @ManyToOne
+   
+	@ManyToOne
     @JsonIgnore
     private Type type;
 	

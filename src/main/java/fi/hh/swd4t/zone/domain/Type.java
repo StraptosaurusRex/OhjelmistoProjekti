@@ -59,7 +59,7 @@ public class Type {
 
 	@Override
 	public String toString() {
-		return "Type [typeid=" + id + ", type=" + type + "]";
+		return "Type [id=" + id + ", type=" + type + "]";
 	}
 	
 }
