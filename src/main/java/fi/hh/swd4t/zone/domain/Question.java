@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @EnableAutoConfiguration
 @Entity
 public class Question {
@@ -18,15 +20,20 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String question;
+   
+	@ManyToOne
+    private Type type;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Answer> answers;
 	
 	public Question() {
-		
+	
 	}
-	public Question(String question) {
+	
+	public Question(String question, Type type) {
 		this.question = question;
+		this.type = type;
 	
 	}
 	public Long getId() {
@@ -42,6 +49,13 @@ public class Question {
 		this.question = question;
 	}
 	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
+	
 	public List<Answer> getAnswers() {
 		return answers;
 	}
@@ -49,9 +63,11 @@ public class Question {
 		this.answers = answers;
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", question=" + question + "]";
+		return "Question [id=" + id + ", question=" + question + ", type=" + type + "]";
 	}
+	
 
 }
