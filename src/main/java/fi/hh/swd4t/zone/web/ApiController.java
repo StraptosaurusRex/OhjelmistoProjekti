@@ -5,14 +5,23 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import fi.hh.swd4t.zone.domain.Answer;
+import fi.hh.swd4t.zone.domain.AnswerRepository;
+
 import fi.hh.swd4t.zone.Application;
+
 import fi.hh.swd4t.zone.domain.Question;
 import fi.hh.swd4t.zone.domain.QuestionRepository;
 
@@ -24,6 +33,9 @@ public class ApiController {
 
 	@Autowired
 	private QuestionRepository questionrepository;
+	
+	@Autowired
+	private AnswerRepository answerrepository;
 
 	//Hello world
     @CrossOrigin(origins = "http://myy.haaga-helia.fi")
@@ -54,4 +66,14 @@ public class ApiController {
 	public void deleteQuestionRest(@PathVariable("id") Long questionId) {
 		questionrepository.deleteById(questionId);
 	}
+	
+	//Save new answer
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
+	@RequestMapping(value = "/api/save", method = RequestMethod.POST)
+	public void save(String answer){
+		String[] temp = answer.split("\\|");
+		Optional<Question> question = questionrepository.findById(Long.parseLong(temp[0]));
+		Answer tempAnswer = new Answer(temp[1], question.get());
+		answerrepository.save(tempAnswer);
+	}    
 }
