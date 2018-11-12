@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,18 +26,21 @@ public class ApiController {
 	private QuestionRepository questionrepository;
 
 	//Hello world
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
 	@RequestMapping (value="/api/hello", method=RequestMethod.GET)
 	public String helloWorld() {
 		return "Hello world";
 	}
 	
 	//get all questions
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
 	@RequestMapping (value="/api/questions", method=RequestMethod.GET)
 	public Iterable<Question> findAllRest() {
 		return questionrepository.findAll();
 	}
 	
 	//get question by id
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.GET)
 	public Optional<Question> findQuestionRest(@PathVariable("id") Long questionId) {	
     	Optional<Question> result = questionrepository.findById(questionId);
@@ -45,6 +49,7 @@ public class ApiController {
 	}
 	
 	//Delete question by id
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
 	@RequestMapping (value="/api/question/{id}", method=RequestMethod.DELETE)
 	public void deleteQuestionRest(@PathVariable("id") Long questionId) {
 		questionrepository.deleteById(questionId);
