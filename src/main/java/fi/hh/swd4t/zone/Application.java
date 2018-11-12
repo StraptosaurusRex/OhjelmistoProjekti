@@ -13,6 +13,8 @@ import fi.hh.swd4t.zone.domain.Answer;
 import fi.hh.swd4t.zone.domain.AnswerRepository;
 import fi.hh.swd4t.zone.domain.Question;
 import fi.hh.swd4t.zone.domain.QuestionRepository;
+import fi.hh.swd4t.zone.domain.TypeRepository;
+import fi.hh.swd4t.zone.domain.Type;
 
 @SpringBootApplication
 public class Application {
@@ -24,13 +26,23 @@ public class Application {
 	}
 	
 	@Bean
-	public CommandLineRunner zoneDemo(QuestionRepository questionrepository, AnswerRepository answerRepository){
+
+	public CommandLineRunner zoneDemo(QuestionRepository questionrepository, AnswerRepository answerRepository, TypeRepository typerepository){
 		return (args) -> {
+			log.info("tallenna kysymystyypit");
+			Type type1 = new Type("teksti");
+			Type type2 = new Type("monivalinta");
+			typerepository.save(type1);
+			typerepository.save(type2);
+			
 			log.info("tallenna kysymys");
-			Question question = new Question("Miten kehittäisit Zonen palveluita?");
+			Question question = new Question("Miten kehittäisit Zonen palveluita????", type1);
 			questionrepository.save(question);
+			
 			log.info("tannelletaan esimerkkivastauksia");
 			answerRepository.save(new Answer("EVVK", question));
+
+
 		};
 	}
 }

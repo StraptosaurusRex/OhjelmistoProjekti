@@ -1,3 +1,6 @@
+### Local confs ###
+application-local.properties
+
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
