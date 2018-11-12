@@ -43,7 +43,10 @@ public class ApiController {
 	
 	//Save new answer
 	@RequestMapping(value = "/api/save", method = RequestMethod.POST)
-	public void save(Answer answer){
+	public void save(String input){
+		String[] temp = input.split("|");
+		Optional<Question> question = questionrepository.findById(Long.parseLong(temp[0]));
+		Answer answer = new Answer(temp[1], question.get());
 		answerrepository.save(answer);
 	}    
 }
