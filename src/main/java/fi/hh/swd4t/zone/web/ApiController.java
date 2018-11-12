@@ -68,6 +68,7 @@ public class ApiController {
 	}
 	
 	//Save new answer
+    @CrossOrigin(origins = "http://myy.haaga-helia.fi")
 	@RequestMapping(value = "/api/save", method = RequestMethod.POST)
 	public void save(String answer){
 		String[] temp = answer.split("\\|");
