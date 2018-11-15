@@ -18,13 +18,13 @@ import fi.hh.swd4t.zone.domain.Type;
 
 @SpringBootApplication
 public class Application {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
+
 	@Bean
 
 	public CommandLineRunner zoneDemo(QuestionRepository questionrepository, AnswerRepository answerRepository, TypeRepository typerepository){
@@ -34,11 +34,12 @@ public class Application {
 			Type type2 = new Type("monivalinta");
 			typerepository.save(type1);
 			typerepository.save(type2);
-			
+
 			log.info("tallenna kysymys");
 			Question question = new Question("Miten kehittäisit Zonen palveluita????", type1);
+			Question question = new Quesetion"("Käytätkö Zonen palveluita?", type2);
 			questionrepository.save(question);
-			
+
 			log.info("tannelletaan esimerkkivastauksia");
 			answerRepository.save(new Answer("EVVK", question));
 
