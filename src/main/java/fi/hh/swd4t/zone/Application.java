@@ -37,8 +37,9 @@ public class Application {
 
 			log.info("tallenna kysymys");
 			Question question = new Question("Miten kehittäisit Zonen palveluita????", type1);
-			Question question = new Question("Käytätkö Zonen palveluita?", type2);
+			Question question2 = new Question("Käytätkö Zonen palveluita?", type2);
 			questionrepository.save(question);
+			questionrepository.save(question2);
 
 			log.info("tannelletaan esimerkkivastauksia");
 			answerRepository.save(new Answer("EVVK", question));
